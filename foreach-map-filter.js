@@ -6,14 +6,14 @@ Examples:
     doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
 
 */
-function doubleValues(arr) {
-  let newArr = [];
-  //   let newArr = [];
-  arr.forEach(function (i) {
-    newArr.push(i * 2);
-  });
-  return newArr;
-}
+// function doubleValues(arr) {
+//   let newArr = [];
+//   //   let newArr = [];
+//   arr.forEach(function (i) {
+//     newArr.push(i * 2);
+//   });
+//   return newArr;
+// }
 
 // /*
 // Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
@@ -23,8 +23,16 @@ function doubleValues(arr) {
 //     onlyEvenValues([5,1,2,3,10]) // [2,10]
 
 // */
-// function onlyEvenValues(arr){
+// function onlyEvenValues(arr) {
+//   let evenInts = [];
 
+//   arr.forEach(function (i) {
+//     if (i % 2 === 0) {
+//       evenInts.push(i);
+//     }
+//   });
+
+//   return evenInts;
 // }
 
 // /*
@@ -35,8 +43,13 @@ function doubleValues(arr) {
 //     showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
 
 // */
-// function showFirstAndLast(arr){
+// function showFirstAndLast(arr) {
+//   let firstLast = [];
 
+//   arr.forEach(function (i) {
+//     firstLast.push(`${i[0]}${i[i.length - 1]}`);
+//   });
+//   return firstLast;
 // }
 
 // /*
@@ -48,11 +61,13 @@ function doubleValues(arr) {
 //     // [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 
 // */
-// function addKeyAndValue(arr,key,value){
-
+// function addKeyAndValue(arr, key, value) {
+//   arr.forEach((i) => {
+//     i[key] = value;
+//   });
+//   return arr;
 // }
 
-// /*
 // Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
 
 // Examples:
@@ -65,6 +80,27 @@ function doubleValues(arr) {
 // function vowelCount(str){
 
 // }
+// vowelCount("kitties Rock");
+
+function vowelCount(str) {
+  let strArr = str.split("");
+  let obj = {};
+  const vowels = "aeiou";
+
+  strArr.forEach(function (i) {
+    let lowerCase = i.toLowerCase();
+    if (vowels.includes(lowerCase)) {
+      if (obj[lowerCase]) {
+        obj[lowerCase]++;
+      } else {
+        obj[lowerCase] = 1;
+      }
+    }
+  });
+  return obj;
+}
+
+//Beging .map() Exercises
 
 // /*
 // Write a function called doubleValuesWithMap which accepts an array and returns a new array with all the values in the array passed to the function doubled
